@@ -18,9 +18,9 @@
 
     <!-- 計時器 -->
     <section class="timer">
-      <div class="mode-name">
+      <!-- <div class="mode-name">
         {{ modeName }}
-      </div>
+      </div> -->
 
       <div class="circle-timer">
         <!-- 圓形進度 -->
@@ -41,10 +41,16 @@
           />
         </svg>
 
-        <!-- 放在圓形中央 -->
+        <!-- 圓形中央內容 -->
         <div class="timer-content">
+          <!-- 時間 -->
           <div class="time">
             {{ displayTime }}
+          </div>
+
+          <!-- 模式名稱 -->
+          <div class="mode-name">
+            {{ modeName }}
           </div>
         </div>
       </div>
@@ -351,7 +357,6 @@ h1 {
 
 .mode-name {
   font-size: 20px;
-  margin-bottom: 10px;
 }
 
 /* 圓形計時器 */
@@ -415,6 +420,8 @@ h1 {
   font-size: 60px;
   font-weight: bold;
   letter-spacing: 3px;
+  line-height: 1;
+  margin-bottom: 10px;
 }
 
 /* 控制 */
