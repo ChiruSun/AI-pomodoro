@@ -22,31 +22,13 @@
         {{ modeName }}
       </div>
 
-      <div class="circle-timer">
-        <!-- 圓形進度 -->
-        <svg class="progress-circle" viewBox="0 0 200 200">
-          <!-- 背景圓 -->
-          <circle class="progress-background" cx="100" cy="100" r="85" />
+      <div class="time">
+        {{ displayTime }}
+      </div>
 
-          <!-- 進度圓 -->
-          <circle
-            class="progress-bar"
-            cx="100"
-            cy="100"
-            r="85"
-            :style="{
-              strokeDasharray: `${2 * Math.PI * 85}`,
-              strokeDashoffset: `${2 * Math.PI * 85 * (1 - progress / 100)}`,
-            }"
-          />
-        </svg>
-
-        <!-- 放在圓形中央 -->
-        <div class="timer-content">
-          <div class="time">
-            {{ displayTime }}
-          </div>
-        </div>
+      <!-- 進度條 -->
+      <div class="progress">
+        <div class="progress-bar" :style="{ width: `${progress}%` }"></div>
       </div>
 
       <!-- 控制按鈕 -->
@@ -354,67 +336,31 @@ h1 {
   margin-bottom: 10px;
 }
 
-/* 圓形計時器 */
-
-.circle-timer {
-  position: relative;
-
-  width: 300px;
-  height: 300px;
-
-  margin: 20px auto;
-}
-
-/* SVG */
-
-.progress-circle {
-  width: 100%;
-  height: 100%;
-
-  transform: rotate(-90deg);
-}
-
-/* 背景圓 */
-
-.progress-background {
-  fill: none;
-
-  stroke: #eeeeee;
-  stroke-width: 10;
-}
-
-/* 進度圓 */
-
-.progress-bar {
-  fill: none;
-
-  stroke: #ff6347;
-  stroke-width: 10;
-
-  stroke-linecap: round;
-
-  transition: stroke-dashoffset 0.5s linear;
-}
-
-/* 中間的文字區域 */
-
-.timer-content {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  text-align: center;
-}
-
-/* 時間 */
-
 .time {
-  font-size: 60px;
+  font-size: 80px;
   font-weight: bold;
   letter-spacing: 3px;
+  margin: 40px 0;
+}
+
+/* 進度條 */
+
+.progress {
+  height: 8px;
+  margin-top: 20px;
+
+  background: #eeeeee;
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+
+  background: #ff6347;
+
+  transition: width 0.3s;
 }
 
 /* 控制 */
